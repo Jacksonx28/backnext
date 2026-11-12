@@ -1,10 +1,10 @@
 {
   "name": "backnext",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/model.test.mjs",
+    "test": "node --test tests/model.test.mjs tests/support.test.mjs",
     "check": "node scripts/check-demo.mjs",
     "pages": "node scripts/prepare-pages.mjs",
     "start": "python3 -m http.server 4173 --directory dist"

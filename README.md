@@ -1,14 +1,17 @@
 # BackNext
 
-**Backed. Built. Delivered.** A demo-only creator request board.
+**Backed. Built. Delivered.** A creator request board with a separate live WIF support pilot.
 
-Publish a request, simulate backing, inspect its demo receipt, and attach finished work. Includes six curated ideas, responsive layouts, smooth interactions, reduced-motion support, and an original SVG logo.
+## Two clearly separated experiences
 
-**No wallet connection, token approval, swap, or real payment is included.** Each browser has its own local demo. There is no shared backend or authenticated creator account. Simulated receipts are not blockchain evidence.
+- The main board is an interactive browser-local demo: publish sample requests, simulate backing, inspect demo receipts, and attach finished work.
+- `/support/` is a live direct-payment pilot for one portfolio starter request. It connects injected EVM wallets such as Rabby, checks Robinhood Chain and the WIF token, simulates an exact transfer, and opens the wallet for user approval. A receipt is labeled verified only when the transaction and matching token Transfer event confirm the payment.
 
-## Run locally
+Live support goes directly to the creator. No escrow, token allowance, staking, deployed BackNext contract, or automatic refund. Creator delivery is not guaranteed. Request metadata and receipt association are site-managed, not enforced onchain. The demo video illustrates the broader simulated workflow; the live pilot was added afterward.
 
-Use Node 22+ for checks and Python 3 for preview. No dependency installation is needed.
+## Run and check
+
+Use Node 22+ and Python 3. No dependency installation is required.
 
 ```sh
 npm test
@@ -18,18 +21,6 @@ python3 -m http.server 4173 --directory dist
 
 ## Hosting
 
-GitHub Pages: Settings → Pages → Deploy from a branch → main → /docs.
+GitHub Pages publishes main → `/docs`. Netlify publishes `/dist`. After editing dist, run `npm run pages` and commit both folders. Only these static assets should be served.
 
-Netlify: import this repository; netlify.toml validates and publishes dist/.
-
-After editing dist/, run npm run pages and commit both dist/ and docs/ to refresh GitHub Pages.
-
-## Next steps
-
-Read [the demo script](guides/demo-script.md) and [next steps](guides/next-steps.md). Test with three people, use one genuine creator request, and record a 60–90 second walkthrough. Any onchain development remains a separate testnet-first milestone.
-
-This demo does not satisfy a hackathon requirement for real WIF transactions. Do not present simulated totals as actual traction or payments.
-
-## Branding
-
-Three stacked request cards represent community backing underneath an idea, with a checkmark for delivered work. SVG assets live in dist/assets/.
+Read [live pilot details and validation](guides/live-pilot.md). A real payment must be approved by the user in their own wallet. Simulated demo receipts are never transaction evidence.
